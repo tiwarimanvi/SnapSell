@@ -18,8 +18,17 @@
                 {{ items.description }}
             </p>
         {% endif %}
-         <a href="#" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Contact seller</a>
-         </div>
+
+         {% if request.user == items.created_by %}
+            <div class="mt-6 p-6 bg-white rounded-xl">
+                <p>this is your item!!!!!! </p>
+                <a href = "{% url 'items:edit' items.id%}" class="inline-block mt-6 px-6 py-3 text-lg bg-yellow-500 font-semibold rounded-xl text-white">Edit</a>
+                <a href = "{% url 'items:delete' items.id%}" class="inline-block mt-6 px-6 py-3 text-lg bg-red-500 font-semibold rounded-xl text-white">Delete</a>
+            </div>
+         {% else %}
+            <a href="#" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Contact seller</a>
+        {% endif %}
+     </div>
 </div>
 <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
 <h2 class="mb-12 text-2xl text-center">Related Items</h2>
