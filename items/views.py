@@ -1,8 +1,25 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-# Create your views here.
 from .forms import NewItemForm, EditItemForm
+
+
+def items(request):
+    query = request.GET.get('query')
+    categories = Category.objects.all()
+    items = Item.objects.filter(is_sold=False)
+
+    if query:
+        items = items.filter(Q(name__icontains=query) | Q(description__iconatins=query))
+
+    return render(request, 'items/items.html', {
+        'items': items,
+        'query': query,
+        'categories': categories,
+    })
+
+
 def detail(request, pk):
     items = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=items.category, is_sold=False).exclude(pk=pk)[0:3]
@@ -11,6 +28,8 @@ def detail(request, pk):
         'items': items,
         'related_items': related_items
     })
+
+
 @login_required
 def new(request):
     if request.method == 'POST':
