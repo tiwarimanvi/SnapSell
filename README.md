@@ -17,7 +17,7 @@ SnapSell is an online marketplace built on Django, providing a platform for user
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/snap-sell.git
+   git clone https://github.com/tiwarimanvi/SnapSell.git
    ```
 
 2. Install dependencies:
