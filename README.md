@@ -58,6 +58,3 @@ If you'd like to contribute to SnapSell, please follow the standard GitHub workf
 2. Create a new branch for your feature or bug fix.
 3. Make your changes and submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
