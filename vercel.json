@@ -1,35 +1,13 @@
-//       {
-//    "builds": [{
-//        "src": "puddle/wsgi.py",
-//        "use": "@vercel/python",
-//        "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
-//    }],
-//    "routes": [
-//        {
-//            "src": "/(.*)",
-//            "dest": "puddle/wsgi.py"
-//        }
-//    ]
-//}
-{
-  "builds": [{
-    "src": "puddle/wsgi.py",
-    "use": "@vercel/python",
-    "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
-  }],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "puddle/wsgi.py"
-    }
-  ],
-  "env": {
-    "DATABASE_ENGINE": "django.db.backends.postgresql",
-    "DATABASE_NAME": "snapsell",
-    "DATABASE_USER": "postgres",
-    "DATABASE_PASSWORD": "root",
-    "DATABASE_HOST": "localhost",
-    "DATABASE_PORT": "5432",
-    "DJANGO_SETTINGS_MODULE": "your_project.settings"
-  }
+       {
+    "builds": [{
+        "src": "puddle/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "puddle/wsgi.py"
+        }
+    ]
 }
