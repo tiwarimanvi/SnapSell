@@ -11,13 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
-from dj_database_url import parse as db_url
-
-# Parse the DATABASE_URL environment variable provided by Vercel
-DATABASES = {
-    'default': db_url(os.environ['DATABASE_URL'])
-}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +25,7 @@ SECRET_KEY = 'django-insecure-5nt&rphvz5h^=fs*o&lcy5%j*d#jpiy!a$%7h)no+=&wz@91g_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
@@ -93,8 +86,8 @@ DATABASES = {
         'NAME': 'snapsell',
         'USER': 'postgres',
         'PASSWORD': 'root',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
