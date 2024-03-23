@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dj_database_url import parse as db_url
 
+# Parse the POSTGRES_PRISMA_URL environment variable
+DATABASES = {'default': db_url(os.environ['POSTGRES_PRISMA_URL'])}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
