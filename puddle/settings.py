@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5nt&rphvz5h^=fs*o&lcy5%j*d#jpiy!a$%7h)no+=&wz@91g_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'snapsell',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
